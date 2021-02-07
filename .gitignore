@@ -1,0 +1,19 @@
+
+# std python shit
+__pycache__
+*.pyc
+dist
+env
+venv
+.pytest_cache
+# for git aftermerge
+version_updater.json
+pre_tag.sh
+post_tag.sh
+new_release.sh
+# testing a debug env
+etc
+var
+# docs 
+docs/_build
+poetry.lock

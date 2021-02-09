@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 [Also based on](https://github.com/conventional-changelog/standard-version/blob/master/CHANGELOG.md) so decending.
 
-## [0.1.0] - 2020-12-22
+## [0.1.0] - 2021-02-09
 ### Added
 - bot - adds changelog
+- adds django-mailbox2 to the project
 

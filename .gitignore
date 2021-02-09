@@ -17,3 +17,4 @@ var
 # docs 
 docs/_build
 poetry.lock
+db.sqlite3

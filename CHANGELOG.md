@@ -10,4 +10,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - bot - adds changelog
 - adds django-mailbox2 to the project
 - adds dont delete setting in settings
+- adds prelaunch plan first version
 

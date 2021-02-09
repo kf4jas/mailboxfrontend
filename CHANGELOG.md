@@ -12,3 +12,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 - adds dont delete setting in settings
 - adds prelaunch plan first version
 
+### Changed
+- changes and updates little bits
+

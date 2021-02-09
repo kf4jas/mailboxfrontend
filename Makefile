@@ -38,6 +38,9 @@ static:
 serve: 
 	poetry run python manage.py runserver 8002
 
+mail:
+	poetry run python manage.py getmail 
+
 migrations:
 	poetry run python manage.py makemigrations
 	poetry run python manage.py migrate

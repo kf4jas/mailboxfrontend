@@ -18,3 +18,4 @@ var
 docs/_build
 poetry.lock
 db.sqlite3
+mailbox_attachments

@@ -5,5 +5,7 @@ from . import views
 
 app_name = "emailfront"
 urlpatterns = [
-    path("", views.home, name="home"),
+    path("allmsgs/", views.allmsgs, name="allmsgs"),
+    path("vue/", views.vue, name="vue"),
+    path("", views.home, name="home")
 ]

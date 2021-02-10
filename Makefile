@@ -38,6 +38,10 @@ static:
 serve: 
 	poetry run python manage.py runserver 8002
 
+dev:
+	cd frontend; npm run build
+	poetry run python manage.py runserver 8002
+
 mail:
 	poetry run python manage.py getmail 
 

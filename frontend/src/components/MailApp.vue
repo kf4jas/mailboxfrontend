@@ -10,7 +10,7 @@
                   placeholder='Filter Search' 
                   v-model='query'
                 />
-            [[ query ]]
+            {{ query }}
             <div class="pure-menu">
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="#" class="pure-menu-link">Inbox <span class="email-count">(2)</span></a></li>
@@ -29,44 +29,28 @@
 
     <div id="list" class="pure-u-1">
         
-        <div v-for="message in messages" :key="message">
+        <div v-for="message in messages" :key="message" v-on:click="read_message(message)">
             <div class="pure-u">
                 <img width="64" height="64" alt="Tilo Mitra&#x27;s avatar" class="email-avatar" src="https://ui-avatars.com/api/?background=random">
             </div>
 
             <div class="pure-u-3-4">
-                <h5 class="email-name">{{ message.from_header }}</h5>
-                <h4 class="email-subject">{{ message.subject }}</h4>
+                <h5 class="email-name">{{ message.From }}</h5>
+                <h4 class="email-subject">{{ message.Subject }}</h4>
                 <p class="email-desc">
-                   {{ message.to_header }}
+                   {{ message.To }}
                 </p>
             </div>
         </div>
-        
-        <div class="email-item email-item-unread email-item-selected pure-g">
-            <!--<div class="pure-u">
-                <img width="64" height="64" alt="Tilo Mitra&#x27;s avatar" class="email-avatar" src="/img/common/tilo-avatar.png">
-            </div> -->
-
-            <div class="pure-u-3-4">
-                <h5 class="email-name">message.name </h5>
-                <h4 class="email-subject">message.subject</h4>
-                <p class="email-desc">
-                    message.desc
-                </p>
-            </div>
-            <hr />
-        </div>
-        
     </div>
 
     <div id="main" class="pure-u-1">
         <div class="email-content">
             <div class="email-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1 class="email-content-title">Hello from Toronto</h1>
+                    <h1 class="email-content-title">{{current.Subject}}</h1>
                     <p class="email-content-subtitle">
-                        From <a>Tilo Mitra</a> at <span>3:56pm, April 3, 2012</span>
+                        From <a>{{current.From}}</a> at <span>{{current.Date}}</span>
                     </p>
                 </div>
 
@@ -78,22 +62,9 @@
             </div>
 
             <div class="email-content-body">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                </p>
-                <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit essecillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-                <p>
-                    Aliquam ac feugiat dolor. Proin mattis massa sit amet enim iaculis tincidunt. Mauris tempor mi vitae sem aliquet pharetra. Fusce in dui purus, nec malesuada mauris. Curabitur ornare arcu quis mi blandit laoreet. Vivamus imperdiet fermentum mauris, ac posuere urna tempor at. Duis pellentesque justo ac sapien aliquet egestas. Morbi enim mi, porta eget ullamcorper at, pharetra id lorem.
-                </p>
-                <p>
-                    Donec sagittis dolor ut quam pharetra pretium varius in nibh. Suspendisse potenti. Donec imperdiet, velit vel adipiscing bibendum, leo eros tristique augue, eu rutrum lacus sapien vel quam. Nam orci arcu, luctus quis vestibulum ut, ullamcorper ut enim. Morbi semper erat quis orci aliquet condimentum. Nam interdum mauris sed massa dignissim rhoncus.
-                </p>
-                <p>
-                    Regards,<br>
-                    Tilo
-                </p>
+                <pre>
+                    {{current.Body}}
+                </pre>
             </div>
         </div>
     </div>
@@ -113,8 +84,20 @@ export default {
         query: "",
         messages: [
         ],
-        
-      };    
+        current: {
+          Body:"",
+          Subject:"",
+          From:"",
+          To: ""
+      }
+    }
+  },
+  methods: {
+      read_message: function (message){
+        this.current = message
+        console.log(message)
+        console.log(message.Body)
+      }
   },
   mounted() {
       axios

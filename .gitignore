@@ -20,4 +20,4 @@ poetry.lock
 db.sqlite3
 frontend/node_modules
 mailbox_attachments
-emailfront/static/emailfront
+emailfront/static/frontend/

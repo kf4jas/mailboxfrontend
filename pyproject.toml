@@ -7,6 +7,7 @@ authors = ["Joe Siwiak <joes@focusschoolsoftware.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 Django = "^3.1.6"
+django_mailbox2 = { git = "https://github.com/sunset-crew/django-mailbox", branch = "master" }
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

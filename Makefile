@@ -32,8 +32,22 @@ deploytest: build
 	./env/bin/pip install dist/${appname}-\$(VERSION).tar.gz
 	-echo "source ./env/bin/activate"
 
+static:
+	poetry run python manage.py collectstatic --no-input
+
 serve: 
-	poetry run python manage.py runserver
+	poetry run python manage.py runserver 8002
+
+dev:
+	cd frontend; npm run build
+	poetry run python manage.py runserver 8002
+
+mail:
+	poetry run python manage.py getmail 
+
+migrations:
+	poetry run python manage.py makemigrations
+	poetry run python manage.py migrate
 
 # Not setup yet
 #deploy: build

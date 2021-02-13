@@ -17,3 +17,7 @@ var
 # docs 
 docs/_build
 poetry.lock
+db.sqlite3
+frontend/node_modules
+mailbox_attachments
+emailfront/static/frontend/
